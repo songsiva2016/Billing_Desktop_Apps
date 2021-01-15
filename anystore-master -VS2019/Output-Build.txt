@@ -1,0 +1,4 @@
+﻿Build started...
+1>------ Build started: Project: AnyStore, Configuration: Debug Any CPU ------
+1>  AnyStore -> E:\Work folder\anystore-master\anystore-master -VS2019\AnyStore\bin\Debug\AnyStore.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
