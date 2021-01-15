@@ -17,7 +17,7 @@ namespace AnyStore.DAL
     {
         public static string sqlLiteConnstring = "Provider=Microsoft.ACE.Oledb.12.0;Data Source=" + Application.StartupPath + "\\Customerservice.accdb";
         static string myconnstrng = "Data Source=" + Application.StartupPath + "\\CustDemo.db; Version=3;New=True;Compress=True;";//"Provider=Microsoft.ACE.Oledb.12.0;Data Source=Customerservice.accdb"; //ConfigurationManager.ConnectionStrings["connstrng"].ConnectionString;
-       // SQLiteConnection sqlite_conn = new SQLiteConnection("Data Source=C:\\Users\\Siva\\OneDrive\\Documents\\CustDemo.db; Version=3;New=True;Compress=True;");
+      
         public bool loginCheck(loginBLL l)
         {
             //Create a boolean variable and set its value to false and return it

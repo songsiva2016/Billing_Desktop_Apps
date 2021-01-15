@@ -36,14 +36,7 @@ namespace AnyStore.DAL
                 //Passing the value to the SQL Query
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
                 //Passing the values using cmd
-                //cmd.Parameters.AddWithValue("@service_ID", td.service_Name);
-                //cmd.Parameters.AddWithValue("@transID", td.trans_ID);
-                //cmd.Parameters.AddWithValue("@rate", td.rate);
-                //cmd.Parameters.AddWithValue("@qty", td.qty);
-                //cmd.Parameters.AddWithValue("@total", td.total);
-                //cmd.Parameters.AddWithValue("@added_date", td.added_date);
-                //cmd.Parameters.AddWithValue("@added_by", td.added_by);
-
+               
                 //Open Database connection
                 conn.Open();
 

@@ -68,19 +68,7 @@ namespace AnyStore.DAL
                 String sql = "INSERT INTO tbl_users(first_name, last_name, email, username, [password], contact, address, gender, user_type, added_date, added_by) VALUES ('" + u.first_name + "', '" + u.last_name + "', '" + u.email + "','" + u.username + "', '" + u.password + "'," + u.contact + ",'" + u.address + "', '" + u.gender + "', '" + u.user_type + "', '" + u.added_date.ToString("yyyy-MM-dd hh:mm:ss") + "', " + u.added_by + ")";
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
 
-                //cmd.Parameters.AddWithValue("@first_name", u.first_name);
-                //cmd.Parameters.AddWithValue("@last_name", u.last_name);
-                //cmd.Parameters.AddWithValue("@email", u.email);
-                //cmd.Parameters.AddWithValue("@username", u.username);
-                //cmd.Parameters.AddWithValue("@password", u.password);
-                //cmd.Parameters.AddWithValue("@contact", u.contact);
-                //cmd.Parameters.AddWithValue("@address", u.address);
-                //cmd.Parameters.AddWithValue("@gender", u.gender);
-                //cmd.Parameters.AddWithValue("@user_type", u.user_type);
-                //cmd.Parameters.AddWithValue("@added_date", u.added_date);
-                //cmd.Parameters.AddWithValue("@added_by", u.added_by);
-
-                conn.Open();
+               conn.Open();
 
                 int rows = cmd.ExecuteNonQuery();
 

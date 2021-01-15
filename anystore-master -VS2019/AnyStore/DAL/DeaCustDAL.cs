@@ -66,19 +66,10 @@ namespace AnyStore.DAL
             {
                 //Write SQL Query to Insert Details of Dealer or Customer
                 string sql = "INSERT INTO tbl_PartyDetails(p_Name, p_Address1, p_Address2, p_TaxNumber, p_State, p_Contact, p_AddedBy,p_Datetime,p_StateCode) VALUES('" + dc.p_Name + "','" + dc.p_Address1 + "','" + dc.p_Address1 + "','" + dc.p_TaxNumber + "','" + dc.p_State + "','" + (dc.p_Contact) + "','" + dc.p_AddedBy + "','" + dc.p_Datetime + "','" + dc.p_StateCode + "')";
-                //string sql = "INSERT INTO tbl_PartyDetails(p_Name, p_Address1, p_Address2, p_TaxNumber, p_State, p_Contact, p_AddedBy,p_Datetime) VALUES('" + dc.p_Name + "', '" + dc.p_Address1 + "', '" + dc.p_Address1 + "','" + dc.p_TaxNumber + "', '" + dc.p_State + "', '" + dc.p_Contact + "', '" + dc.p_AddedBy + "', '" + dc.p_Datetime + "')";
+             
                 //SQl Command to Pass the values to query and execute
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-                //Passing the calues using Parameters
-                //cmd.Parameters.AddWithValue("@p_Name", dc.p_Name);
-                //cmd.Parameters.AddWithValue("@p_Address1", dc.p_Address1);
-                //cmd.Parameters.AddWithValue("@p_Address2", dc.p_Address1);
-                //cmd.Parameters.AddWithValue("@p_TaxNumber", dc.p_TaxNumber);
-                //cmd.Parameters.AddWithValue("@p_State", dc.p_State);
-                //cmd.Parameters.AddWithValue("@p_Contact", dc.p_Contact);
-                //cmd.Parameters.AddWithValue("@p_AddedBy", dc.p_AddedBy);
-                //cmd.Parameters.AddWithValue("@p_Datetime", dc.p_Datetime);
-                //Open DAtabaseConnection
+                
                 conn.Open();
 
                 //Int variable to check whether the query is executed successfully or not
@@ -122,18 +113,6 @@ namespace AnyStore.DAL
                 string sql = "UPDATE tbl_PartyDetails SET p_Name='" + dc.p_Name + "', p_Address1='" + dc.p_Address1 + "', p_Address2='" + dc.p_Address1 + "', p_Contact='" + dc.p_Contact + "',p_TaxNumber='" + dc.p_TaxNumber + "',p_State='" + dc.p_State + "',p_AddedBy='" + dc.p_AddedBy + "',p_datetime='" + dc.p_Datetime + "',p_StateCode='" + dc.p_StateCode + "' WHERE ID='" + dc.p_ID + "'";
                 //Create SQL Command to pass the value in sql
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-
-                //Passing the values through parametersp_Contact
-                //cmd.Parameters.AddWithValue("@p_Name", dc.p_Name);
-                //cmd.Parameters.AddWithValue("@p_Address1", dc.p_Address1);
-                //cmd.Parameters.AddWithValue("@p_Address2", dc.p_Address1);
-                //cmd.Parameters.AddWithValue("@p_Contact", dc.p_Contact);
-                //cmd.Parameters.AddWithValue("@p_TaxNumber", dc.p_TaxNumber);
-                //cmd.Parameters.AddWithValue("@p_State", dc.p_State);
-                //cmd.Parameters.AddWithValue("@p_AddedBy", dc.p_AddedBy);
-                //cmd.Parameters.AddWithValue("@p_Datetime", dc.p_Datetime);
-                //cmd.Parameters.AddWithValue("@id", dc.p_ID);
-
 
                 //open the Database Connection
                 conn.Open();
@@ -214,10 +193,8 @@ namespace AnyStore.DAL
         {
             //Create a Sql Connection
             SQLiteConnection conn = new SQLiteConnection(myconnstrng);
-
             //Creating a Data TAble and returnign its value
             DataTable dt = new DataTable();
-
             try
             {
                 //Write the Query to Search Dealer or Customer Based in id, type and name

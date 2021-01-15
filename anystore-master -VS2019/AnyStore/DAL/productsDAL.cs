@@ -72,15 +72,6 @@ namespace AnyStore.DAL
                 //Creating SQL Command to pass the values
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
 
-                //Passign the values through parameters
-                //cmd.Parameters.AddWithValue("@name", p.name);
-                //cmd.Parameters.AddWithValue("@category", p.category);
-                //cmd.Parameters.AddWithValue("@description", p.description);
-                //cmd.Parameters.AddWithValue("@rate", p.rate);
-                //cmd.Parameters.AddWithValue("@qty", p.qty);
-                //cmd.Parameters.AddWithValue("@added_date", p.added_date);
-                //cmd.Parameters.AddWithValue("@added_by", p.added_by);
-
                 //Opening the Database connection
                 conn.Open();
 
@@ -126,16 +117,6 @@ namespace AnyStore.DAL
 
                 //Create SQL Cmmand to pass the value to query
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-                //Passing the values using parameters and cmd
-                //cmd.Parameters.AddWithValue("@name", p.name);
-                //cmd.Parameters.AddWithValue("@category", p.category);
-                //cmd.Parameters.AddWithValue("@description", p.description);
-                //cmd.Parameters.AddWithValue("@rate", p.rate);
-                //cmd.Parameters.AddWithValue("@qty", p.qty);
-                //cmd.Parameters.AddWithValue("@added_date", p.added_date);
-                //cmd.Parameters.AddWithValue("@added_by", p.added_by);
-                //cmd.Parameters.AddWithValue("@id", p.id);
-
                 //Open the Database connection
                 conn.Open();
 
@@ -171,24 +152,18 @@ namespace AnyStore.DAL
         {
             //Create Boolean Variable and Set its default value to false
             bool isSuccess = false;
-
             //SQL Connection for DB connection
             SQLiteConnection conn = new SQLiteConnection(myconnstrng);
-
             try
             {
                 //Write Query Product from DAtabase
                 String sql = "DELETE FROM tbl_products WHERE id=@id";
-
                 //Sql Command to Pass the Value
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-
                 //Passing the values using cmd
                 cmd.Parameters.AddWithValue("@id", p.id);
-
                 //Open Database Connection
                 conn.Open();
-
                 int rows = cmd.ExecuteNonQuery();
                 //If the query is executed successfullly then the value of rows will be greated than 0 else it will be less than 0
                 if (rows > 0)
@@ -210,7 +185,6 @@ namespace AnyStore.DAL
             {
                 conn.Close();
             }
-
             return isSuccess;
         }
         #endregion
@@ -221,20 +195,16 @@ namespace AnyStore.DAL
             SQLiteConnection conn = new SQLiteConnection(myconnstrng);
             //Creating DAtaTable to hold value from dAtabase
             DataTable dt = new DataTable();
-
             try
             {
                 //SQL query to search product
                 string sql = "SELECT * FROM tbl_products WHERE id LIKE '%" + keywords + "%' OR name LIKE '%" + keywords + "%' OR category LIKE '%" + keywords + "%'";
                 //Sql Command to execute Query
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-
                 //SQL Data Adapter to hold the data from database temporarily
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
-
                 //Open Database Connection
                 conn.Open();
-
                 adapter.Fill(dt);
             }
             catch (Exception ex)
@@ -245,7 +215,6 @@ namespace AnyStore.DAL
             {
                 conn.Close();
             }
-
             return dt;
         }
         #endregion
@@ -258,7 +227,6 @@ namespace AnyStore.DAL
             SQLiteConnection conn = new SQLiteConnection(myconnstrng);
            // Datatable to store data temporarily
             DataTable dt = new DataTable();
-
             try
             {
                 //Write the Query to Get the detaisl
@@ -298,12 +266,10 @@ namespace AnyStore.DAL
         {
             //First Create an Object of DeaCust BLL and REturn it
             productsBLL p = new productsBLL();
-
             //SQL Conection here
             SQLiteConnection conn = new SQLiteConnection(myconnstrng);
             //Data TAble to Holdthe data temporarily
             DataTable dt = new DataTable();
-
             try
             {
                 //SQL Query to Get id based on Name
@@ -340,7 +306,6 @@ namespace AnyStore.DAL
             SQLiteConnection conn = new SQLiteConnection(myconnstrng);
             //Create a Decimal Variable and set its default value to 0
             decimal qty = 0;
-
             //Create Data Table to save the data from database temporarily
             DataTable dt = new DataTable();
 
@@ -348,19 +313,14 @@ namespace AnyStore.DAL
             {
                 //Write WQL Query to Get Quantity from Database
                 string sql = "SELECT qty FROM tbl_products WHERE id = " + ProductID;
-
                 //Cerate A SQLiteCommand
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
-
                 //Create a SQL Data Adapter to Execute the query
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
-
                 //open DAtabase Connection
-                conn.Open();
-
+               conn.Open();
                 //PAss the calue from Data Adapter to DataTable
                 adapter.Fill(dt);
-
                 //Lets check if the datatable has value or not
                 if (dt.Rows.Count > 0)
                 {
@@ -385,24 +345,19 @@ namespace AnyStore.DAL
         {
             //Create a Boolean Variable and Set its value to false
             bool success = false;
-
             //SQl Connection to Connect Database
             SQLiteConnection conn = new SQLiteConnection(myconnstrng);
-
             try
             {
                 //Write the SQL Query to Update Qty
                 string sql = "UPDATE tbl_products SET qty=@qty WHERE id=@id";
-
                 //Create SQL Command to Pass the calue into Queyr
                 SQLiteCommand cmd = new SQLiteCommand(sql, conn);
                 //Passing the VAlue trhough parameters
                 cmd.Parameters.AddWithValue("@qty", Qty);
                 cmd.Parameters.AddWithValue("@id", ProductID);
-
                 //Open Database Connection
                 conn.Open();
-
                 //Create Int Variable and Check whether the query is executed Successfully or not
                 int rows = cmd.ExecuteNonQuery();
                 //Lets check if the query is executed Successfully or not
